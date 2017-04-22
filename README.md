@@ -1,4 +1,31 @@
-## Welcome to GitHub Pages
+## Welcome to epam-js-angular-training
+
+
+###Steps to complete the Homework
+
+### Signup/login to Github account
+### Create a Repository name it for example JS-HW-1
+  ref :https://help.github.com/articles/create-a-repo/
+### Signup to http://www.codewars.com 
+### Navigate to the question/challenge/homework task
+### Click on Try Again button
+### Write your logic/program in Solution textarea/box
+### Click on Run Sample Tests button
+### Verify output make sure all tests are passed
+### Click on Attemt once all the tests are passed
+### Copy the code and paste/push it into the github repository that you have created.
+### Share it with your mentor
+
+You are done with the homework
+
+Happy learning
+
+
+
+
+
+
+
 
 You can use the [editor on GitHub](https://github.com/amshekar/epam-js-angular-training/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
