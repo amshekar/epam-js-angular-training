@@ -22,6 +22,8 @@
 
 9. Click on Attemt once all the tests are passed
 
+9. Once All tests are passed the Final submit button will be enabled. click on Final Submit.
+
 10. Copy the code and paste/push it into the github repository that you have created.
 
 11. Share it with your mentor
@@ -29,7 +31,8 @@
 You are done with the homework
 
 Happy learning
-https://amshekar.github.io/epam-js-angular-training/
+
+Gitpages : https://amshekar.github.io/epam-js-angular-training/
 
 
 
