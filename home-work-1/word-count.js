@@ -1,10 +1,6 @@
-
 function countWords(str) {
-if(!str.trim())
-return 0;
-else if(str.indexOf("﻿"))
-return str.trim().split(﻿).length;
-else 
-return str.trim().split(' ').length;
- // return result;
+// \S => Find a non-whitespace character g =>Perform a global match
+var regex = /\S+/g,matchWords;
+matchWords = str.match(regex);
+return matchWords ? matchWords.length : 0;
 }
