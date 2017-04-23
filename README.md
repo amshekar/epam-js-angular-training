@@ -8,7 +8,7 @@
 2. Create a Repository name it for example JS-HW-1
   ref :https://help.github.com/articles/create-a-repo/
   
-3. Signup to http://www.codewars.com 
+3. Signup to www.codewars.com/r/JG_S3Q
 
 4. Navigate to the question/challenge/homework task
 
