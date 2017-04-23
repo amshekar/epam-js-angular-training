@@ -29,6 +29,7 @@
 You are done with the homework
 
 Happy learning
+https://amshekar.github.io/epam-js-angular-training/
 
 
 
