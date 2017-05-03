@@ -1,12 +1,13 @@
 function rentalCarCost(days) {
-    const baseFare = 40;
-    let totalFare = days * baseFare;
+    const DAILY_CAR_RENT = 40;
+    let totalCarRent;
+    totalCarRent = days * DAILY_CAR_RENT;
     if (days >= 3 && days < 7) {
-        totalFare -= 20;
+        totalCarRent -= 20;
     }
     else if (days >= 7) {
-        totalFare -= 50;
+        totalCarRent -= 50;
     }
-    return totalRent;
+    return totalCarRent;
 }
 
