@@ -28,6 +28,8 @@
 
 11. Share it with your mentor
 
+12. Status can find here https://github.com/amshekar/epam-js-angular-training/projects/1
+
 You are done with the homework
 
 Happy learning
