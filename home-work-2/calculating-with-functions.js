@@ -1,37 +1,19 @@
-// JavaScript source code
-function zero(operator) {
-    return operator ? operator(0) : 0;
-}
-function one(operator) {
-    return operator ? operator(1) : 1;
-}
-function two(operator) {
-    return operator ? operator(2) : 2;
-}
-function three(operator) {
-    return operator ? operator(3) : 3;
-}
-function four(operator) {
-    return operator ? operator(4) : 4;
-}
-function five(operator) {
-    return operator ? operator(5) : 5;
-}
-function six(operator) {
-    return operator ? operator(6) : 6;
-}
-function seven(operator) {
-    return operator ? operator(7) : 7;
-}
-function eight(operator) {
-    return operator ? operator(8) : 8;
-}
-function nine(operator) {
-    return operator ? operator(9) : 9;
-}
 
-
-
+var zero = op(0);
+var one = op(1);
+var two = op(2);
+var three = op(3);
+var four = op(4);
+var five = op(5);
+var six = op(6);
+var seven = op(7);
+var eight = op(8);
+var nine = op(9);
+function op(digit) {
+    return function (op) {
+        return op ? op(digit) : digit;
+    }
+}
 function plus(num) {
     return function (res) {
         return res + num;
