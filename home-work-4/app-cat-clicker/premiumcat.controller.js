@@ -1,7 +1,6 @@
 //need to refractor h-w-1 section 3
 (function(module) {
   "use strict";
-
   function catClick3Controller() {
     var vm = this;
     vm.cats = [{
@@ -36,21 +35,21 @@
     function selectedCat(item) {
       vm.selectedOne = item;
       vm.selectedCatClicks = 0;
-    };
+    }
 
     vm.selecteCatClick = selecteCatClick;
 
     function selecteCatClick() {
       vm.selectedCatClicks++;
       vm.totalclicks++;
-    };
+    }
 
 
     vm.clickCount1 = clickCount1;
 
     function clickCount1() {
       vm.cat1Clik++;
-    };
+    }
     vm.clickCount2 = clickCount2;
 
     function clickCount2() {

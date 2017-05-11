@@ -1,7 +1,7 @@
 //h-w-1 section 2
 (function(module) {
   "use strict";
-
+  
   function catClick2Controller() {
     var vm = this;
     vm.cat1Clik = 0;
