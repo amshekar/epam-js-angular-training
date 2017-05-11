@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+  <script src="singlecat.controller.js"></script>
+  <script src="twocats.controller.js"></script>
+  <script src="premiumcat.controller.js"></script>
+</head>
+
+<body ng-app="catclick">
+
+  <h1>H-W-1 Section 1 -Cat Clicker</h1>
+  <div ng-controller="catController as vm">
+    <img ng-src="http://placekitten.com/200/300" alt="cat" ng-click="vm.catClick()"> cat:{{vm.count}}
+    <div>Total Count={{vm.count}}</div>
+  </div>
+
+  <h1>H-W-1 Section 2 -Cat Clicker</h1>
+  <div ng-controller="catClick2Controller as vm">
+    <span>Cat1</span><img ng-src="http://placekitten.com/200/300" alt="cat1" ng-click="vm.clickCount1()"> cat1:{{vm.cat1Clik}}
+    <span>Cat2</span><img ng-src="http://placekitten.com/200/200" alt="cat2" ng-click="vm.clickCount2()"> cat1:{{vm.cat2Clik}}
+
+    <div>Total Count={{vm.cat1Clik+vm.cat2Clik}}</div>
+  </div>
+
+
+  <h1>H-W-1 Section 3 -Cat Clicker</h1>
+  <div ng-controller="catClick3Controller as vm">
+    {{vm.selected.value}}
+    <ul>
+      <li ng-repeat="cat in vm.cats track by $index">
+        {{cat.name}}
+
+        <a href ng-click="vm.selectedCat(cat);" ng-model="cat"><img ng-src="cat.url" alt=cat:{{$index+1}}></a>
+      </li>
+
+    </ul>
+    <br/>
+    <div ng-show="vm.selectedOne">
+
+      <!--<span>{{selectedOne.name}}</span> <span>{{vm.selectedOne.url}}</span>-->
+      <span>{{vm.selectedOne.name}}</span><img ng-src="vm.selectedOne.url" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()"> Selected Cat clicks:{{vm.selectedCatClicks}}
+      <span>Total Clicks:{{vm.totalclicks}}</span>
+    </div>
+
+  </div>
+</body>
+
+</html>
