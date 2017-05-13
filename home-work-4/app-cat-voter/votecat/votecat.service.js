@@ -1,7 +1,8 @@
 ﻿(function (module) {
     function voteCatService($http, $q, $location) {
         var service = {
-            GetCats: GetCats
+            GetCats: GetCats,
+            AddCat:AddCat
         };
 
 
@@ -33,6 +34,12 @@
         function GetCats() {
             return cats;
             
+        }
+        function AddCat(reqName,reqUrl) {
+
+            cats.push({ name: reqName, url: reqUrl });
+            
+
         }
     }
     

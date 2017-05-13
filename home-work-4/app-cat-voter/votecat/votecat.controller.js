@@ -3,8 +3,8 @@
     "use strict";
     function VoteCatController(voteCatService) {
         var vm = this;
-        vm.cats = voteCatService.GetCats();       
-
+        vm.cats = voteCatService.GetCats();
+        vm.Allcats = vm.cats;
         vm.selectedOne = null;
         vm.totalclicks = 0;
         vm.cat = vm.cats[0];
@@ -14,10 +14,15 @@
         vm.selectedCat = selectedCat;
         vm.upVote = upVote;
         vm.downVote = downVote;
+        vm.viewed = false;
+        vm.search = search;
+        vm.addCat = addCat;
+        vm.resetAll = resetAll;
 
         function selectedCat(item) {
             vm.selectedOne = item;
             vm.selectedCatClicks = 0;
+            vm.viewed = true;
         }
 
         vm.selecteCatClick = selecteCatClick;
@@ -25,6 +30,7 @@
         function selecteCatClick() {
             vm.selectedCatClicks++;
             vm.totalclicks++;
+            vm.viewed = true;
         }
 
 
@@ -41,10 +47,38 @@
 
         function upVote() {
             vm.votes++;
-            
+
         }
         function downVote() {
             vm.votes--;
+        }
+
+        function search() {
+            vm.cats = _.filter(vm.Allcats,
+                function (item) {
+                    return searchUtil(item, vm.searchText);
+                });
+
+            if (vm.searchText == '') {
+                vm.cats = vm.Allcats;
+            }
+            // vm.resetAll();
+        }
+        function searchUtil(item, toSearch) {
+            /* Search Text in all 3 fields */
+            return (item.name.toLowerCase().indexOf(toSearch.toLowerCase()) > -1) ? true : false;
+        }
+        function addCat() {           
+            voteCatService.AddCat(vm.name, vm.url);
+            vm.resetAll();
+        }
+
+        function resetAll() {
+            vm.cats = vm.Allcats;
+            vm.name = '';
+            vm.url = '';
+
+            vm.searchText = '';
         }
 
     }

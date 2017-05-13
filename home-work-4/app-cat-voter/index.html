@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/customstyles.css">
@@ -15,6 +16,14 @@
 
     <h1>H-W-4-2 Section 1 -Cat Voter</h1>
     <div ng-controller="VoteCatController as vm">
+        <div class="row">
+            <div class="input-group col-md-6 col-md-offset-3">
+                <input class="form-control" ng-model="vm.searchText" placeholder="Search" type="search" />
+                <span class="input-group-addon btn">
+                    <button class="fa fa-search" ng-click="vm.search()"></button>
+                </span>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 {{vm.selected.value}}
@@ -30,7 +39,7 @@
             <div class="col-md-6" ng-show="vm.selectedOne">
                 <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()" class="imagesize">
                 <div>
-                    Name :&nbsp;&nbsp;{{vm.selectedOne.name}}&nbsp;&nbsp;
+                    Name :&nbsp;&nbsp;{{vm.selectedOne.name}}&nbsp;&nbsp;<span ng-show="vm.viewed"><i class="fa fa-check" aria-hidden="true"></i></span>
                     Votes:&nbsp;&nbsp;{{vm.votes}}&nbsp;&nbsp;
                     <!--Total Clicks:&nbsp;&nbsp;{{vm.totalclicks}}&nbsp;&nbsp;-->
                 </div>
@@ -42,6 +51,55 @@
                 </a>
 
 
+            </div>
+            <!--<div class="row">
+                <div class="col-md-2">
+                    <input type="text" ng-model="vm.name" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" ng-model="vm.color" class="form-control" placeholder="Color">
+                </div>
+
+                <div class="col-md-2">
+                    <input type="text" ng-model="vm.url" class="form-control" placeholder="Url">
+                </div>
+                <div class="col-md-1">
+                    <button ng-click="vm.addCat()" type="button" class="btn btn-primary">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </div>-->
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Add Cat</legend>
+                    <div class="form-group">
+                        <label for="inputname" class="col-lg-2 control-label">Name</label>
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="vm.name"  class="form-control" id="inputname" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputurl" class="col-lg-2 control-label">URL</label>
+                        <div class="col-lg-10">
+                            <input type="text"  ng-model="vm.url" class="form-control" id="inputurl" placeholder="url">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputcolor" class="col-lg-2 control-label">color</label>
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="vm.color" class="form-control" id="inputcolor" placeholder="color">
+
+                        </div>
+                    </div>
+
+                    
+                </fieldset>
+            </form>
+            <div class="col-md-1">
+                <button ng-click="vm.addCat()" type="button" class="btn btn-primary">
+                    <span class="fa fa-plus"></span>
+                </button>
             </div>
         </div>
     </div>
