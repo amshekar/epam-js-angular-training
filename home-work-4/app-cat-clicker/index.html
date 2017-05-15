@@ -11,11 +11,14 @@
     <script src="premiumcat/premiumcat.controller.js"></script>
 </head>
 <body ng-app="catclick">
-    <h1>H-W-1 Section 1 -Cat Clicker</h1>
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 1 -Cat Clicker</p>
+    </blockquote>
+
     <div ng-controller="SingleCatController as vm">
         <div class="row">
             <div class="col-md-6 col-md-offset-1">
-                <img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="cat" ng-click="vm.catClick()"> 
+                <img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="cat" ng-click="vm.catClick()">
             </div>
             <div class="col-md-6 col-md-offset-3">
                 cat:{{vm.count}}  Total Count={{vm.count}}
@@ -23,7 +26,10 @@
 
         </div>
     </div>
-    <h1>H-W-1 Section 2 -Cat Clicker</h1>
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 2 -Cat Clicker</p>
+    </blockquote>
+
     <div ng-controller="TwoCatsController as vm">
         <div class="row">
             <div class="col-md-6">
@@ -39,20 +45,26 @@
             </div>
         </div>
     </div>
-    <h1>H-W-1 Section 3 -Cat Clicker</h1>
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 3 -Cat Clicker</p>
+    </blockquote>
+
     <div ng-controller="PremiumCatController as vm">
         <div class="row">
+            
             <div class="col-md-6">
+                <p>Select any cat</p>
                 {{vm.selected.value}}
                 <ul>
                     <li ng-repeat="cat in vm.cats track by $index">
-                        {{cat.name}}
-                        <a ng-href ng-click="vm.selectedCat(cat);" ng-model="cat"><img ng-src="{{cat.url}}" alt=cat:{{$index+1}}></a>
+                        {{cat.name}}&nbsp;
+                        <a ng-href ng-click="vm.selectedCat(cat);" ng-model="cat"><img ng-src="{{cat.url}}" alt=cat:{{$index+1}} class="imagesize"></a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-6" ng-show="vm.selectedOne">
-                <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()">
+                <p>You have selected {{vm.selectedOne.name}}</p>
+                <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()" class="imagesize">
                 <div>
                     Name :{{vm.selectedOne.name}}
                     Selected Cat clicks:{{vm.selectedCatClicks}}
