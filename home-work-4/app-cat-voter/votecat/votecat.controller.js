@@ -18,11 +18,14 @@
         vm.search = search;
         vm.addCat = addCat;
         vm.resetAll = resetAll;
+        // order by options
+       
 
         function selectedCat(item) {
             vm.selectedOne = item;
             vm.selectedCatClicks = 0;
-            vm.viewed = true;
+            item.viewed = true;
+            vm.votes = 0;
         }
 
         vm.selecteCatClick = selecteCatClick;
@@ -30,7 +33,7 @@
         function selecteCatClick() {
             vm.selectedCatClicks++;
             vm.totalclicks++;
-            vm.viewed = true;
+            //vm.viewed = true;
         }
 
 
