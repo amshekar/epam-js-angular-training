@@ -1,14 +1,5 @@
 
-var zero = op(0);
-var one = op(1);
-var two = op(2);
-var three = op(3);
-var four = op(4);
-var five = op(5);
-var six = op(6);
-var seven = op(7);
-var eight = op(8);
-var nine = op(9);
+var zero = op(0), one = op(1), two = op(2), three = op(3), four = op(4), five = op(5), six = op(6), seven = op(7), eight = op(8), nine = op(9);
 function op(digit) {
     return function (op) {
         return op ? op(digit) : digit;
