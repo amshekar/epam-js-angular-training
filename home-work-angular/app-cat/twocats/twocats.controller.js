@@ -21,4 +21,4 @@
 
      module.controller("TwoCatsController", TwoCatsController);
 
-})(angular.module("catviewer"));
+})(angular.module("catapp"));

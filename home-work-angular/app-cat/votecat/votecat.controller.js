@@ -92,4 +92,4 @@
     VoteCatController.$inject = ["voteCatService","$cookies","$log"];
     module.controller("VoteCatController", VoteCatController);
 
-})(angular.module("catviewer"));
+})(angular.module("catapp"));

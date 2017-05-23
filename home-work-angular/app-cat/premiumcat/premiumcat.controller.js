@@ -40,4 +40,4 @@
     PremiumCatController.$inject = ["premiumCatService"];
     module.controller("PremiumCatController", PremiumCatController);
 
-})(angular.module("catviewer"));
+})(angular.module("catapp"));

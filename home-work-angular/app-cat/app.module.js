@@ -1,5 +1,5 @@
 // Code goes here
-(function(angular) {
+(function (angular) {
   "use strict";
-  angular.module("catviewer", ['ngCookies']);
+  angular.module("catapp", ['ngCookies']);
 })(angular);

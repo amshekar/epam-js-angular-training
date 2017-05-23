@@ -38,4 +38,4 @@
     
     premiumCatService.$inject = ['$http', '$q', '$location'];
     module.service('premiumCatService', premiumCatService);
-})(angular.module('catviewer'));
+})(angular.module('catapp'));

@@ -45,4 +45,4 @@
     
     voteCatService.$inject = ['$http', '$q', '$location'];
     module.service('voteCatService', voteCatService);
-})(angular.module('catviewer'));
+})(angular.module('catapp'));

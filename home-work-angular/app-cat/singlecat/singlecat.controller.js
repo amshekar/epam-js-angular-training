@@ -14,4 +14,4 @@
     module.controller("SingleCatController", SingleCatController);
 
 
-})(angular.module("catviewer"));
+})(angular.module("catapp"));
