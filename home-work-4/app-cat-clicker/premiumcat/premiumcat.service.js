@@ -3,9 +3,6 @@
         var service = {
             GetCats: GetCats
         };
-
-
-
         var cats = [];
         cats = [{
             name: 'Abyssinian',
@@ -29,11 +26,15 @@
 
         }];
 
-        return service;
+        
         function GetCats() {
-            return cats;
+            var deffered=$q.defer();
+            deffered.resolve(cats);
+            return deffered.promise;
 
         }
+        
+        return service;
     }
 
     premiumCatService.$inject = ['$http', '$q', '$location'];

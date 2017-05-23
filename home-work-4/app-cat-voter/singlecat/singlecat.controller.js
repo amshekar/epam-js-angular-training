@@ -11,7 +11,7 @@
         }
 
     }
-    module.controller("SingleCatController", SingleCatController);
+   module.controller("SingleCatController", SingleCatController);
 
 
 })(angular.module("catvoter"));

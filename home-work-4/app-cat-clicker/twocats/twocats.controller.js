@@ -18,8 +18,7 @@
         }
 
     }
-
-    TwoCatsController.$inject = [];
+    
     module.controller("TwoCatsController", TwoCatsController);
 
 })(angular.module("catclick"));

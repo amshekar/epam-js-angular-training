@@ -3,7 +3,16 @@
     "use strict";
     function PremiumCatController(premiumCatService) {
         var vm = this;
-        vm.cats = premiumCatService.GetCats();       
+        GetCats();
+        function GetCats() {
+            premiumCatService.GetCats().then(function (result) {
+                vm.cats = result;
+            }, function (error) {
+                $log.info(error);
+            });
+        }
+
+
 
         vm.selectedOne = null;
         vm.totalclicks = 0;
