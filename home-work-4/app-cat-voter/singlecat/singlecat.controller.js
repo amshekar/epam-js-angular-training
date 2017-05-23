@@ -11,7 +11,6 @@
         }
 
     }
-    SingleCatController.$inject = [];
     module.controller("SingleCatController", SingleCatController);
 
 
