@@ -51,9 +51,9 @@
             //storing and retreiving from cookie
             
             $cookies.putObject('catVotes', { 'name': 'cat', 'vote': vm.votes});
-            getmycookiesback = $cookies.getObject('catVotes');
-            $log.info(getmycookiesback.name);
-            $log.info(getmycookiesback.vote);
+            vm.getmycookiesback = $cookies.getObject('catVotes');
+            $log.info(vm.getmycookiesback.name);
+            $log.info(vm.getmycookiesback.vote);
 
         }
         function downVote() {
