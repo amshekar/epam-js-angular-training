@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/customstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>    
+    <script src="app.module.js"></script>
+    <script src="premiumcat/premiumcat.service.js"></script>
+    <script src="singlecat/singlecat.controller.js"></script>
+    <script src="twocats/twocats.controller.js"></script>
+    <script src="premiumcat/premiumcat.controller.js"></script>
+</head>
+<body ng-app="catclick">
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 1 -Cat Clicker</p>
+    </blockquote>
+
+    <div ng-controller="SingleCatController as vm">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1">
+                <img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" alt="cat" ng-click="vm.catClick()">
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                cat:{{vm.count}}  Total Count={{vm.count}}
+            </div>
+
+        </div>
+    </div>
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 2 -Cat Clicker</p>
+    </blockquote>
+
+    <div ng-controller="TwoCatsController as vm">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Cat1</span><img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="cat1" ng-click="vm.clickCount1()"> cat1:{{vm.cat1Clik}}
+            </div>
+            <div class="col-md-6">
+                <span>Cat2</span><img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" alt="cat2" ng-click="vm.clickCount2()"> cat2:{{vm.cat2Clik}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                Total Count={{vm.cat1Clik+vm.cat2Clik}}
+            </div>
+        </div>
+    </div>
+    <blockquote class="blockquote">
+        <p class="mb-0">H-W-1 Section 3 -Cat Clicker</p>
+    </blockquote>
+
+    <div ng-controller="PremiumCatController as vm">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <p>Select any cat</p>
+                {{vm.selected.value}}
+                <ul>
+                    <li ng-repeat="cat in vm.cats track by $index">
+                        {{cat.name}}&nbsp;
+                        <a ng-href ng-click="vm.selectedCat(cat);" ng-model="cat"><img ng-src="{{cat.url}}" alt=cat:{{$index+1}} class="imagesize"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6" ng-show="vm.selectedOne">
+                <p>You have selected {{vm.selectedOne.name}}</p>
+                <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()" class="imagesize">
+                <div>
+                    Name :{{vm.selectedOne.name}}
+                    Selected Cat clicks:{{vm.selectedCatClicks}}
+                    Total Clicks:{{vm.totalclicks}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/customstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.js"></script>   
+    <script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>       
+    <script src="app.module.js"></script>
+    <script src="votecat/votecat.service.js"></script>
+    <script src="singlecat/singlecat.controller.js"></script>
+    <script src="twocats/twocats.controller.js"></script>
+    <script src="votecat/votecat.controller.js"></script>
+</head>
+<body ng-app="catviewer">
+
+    <h1>H-W-4-2 Section 1 -Cat Voter</h1>
+    <div ng-controller="VoteCatController as vm">
+        <div class="row">
+            <div class="input-group col-md-6 col-md-offset-3">
+                <input class="form-control" ng-model="vm.searchText" placeholder="Search" type="search" />
+                <span class="input-group-addon btn">
+                    <button class="fa fa-search" ng-click="vm.search()"></button>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{vm.selected.value}}
+                <ul>
+                    <li ng-repeat="cat in vm.cats track by $index">
+                        <div class="col-md-2">
+                            {{cat.name}}
+                            <a ng-href ng-click="vm.selectedCat(cat);" ng-model="cat"><img ng-src="{{cat.url}}" alt=cat:{{$index+1}} class="imagesize"></a>
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2" ng-show="vm.selectedOne">
+                    <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()" class="imagesize">
+                    <div>
+                        Name :&nbsp;&nbsp;{{vm.selectedOne.name}}&nbsp;&nbsp;<span ng-show="vm.viewed"><i class="fa fa-check" aria-hidden="true"></i></span>
+                        Votes:&nbsp;&nbsp;{{vm.votes}}&nbsp;&nbsp;
+                        <!--Total Clicks:&nbsp;&nbsp;{{vm.totalclicks}}&nbsp;&nbsp;-->
+                    </div>
+                    <a class="btn btn-success" href="#" id="testBtnDown" ng-click="vm.upVote()">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger " href="#" id="testBtnDown" ng-click="vm.downVote()">
+                        <i class="fa fa-thumbs-down"></i>
+                    </a>
+                </div>
+
+            </div>            
+            <div class="row">
+                <div class="input-group col-md-6 col-md-offset-3">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Add Cat</legend>
+                            <div class="form-group">
+                                <label for="inputname" class="col-lg-2 control-label">Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model="vm.name" class="form-control" id="inputname" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputurl" class="col-lg-2 control-label">URL</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model="vm.url" class="form-control" id="inputurl" placeholder="url">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputcolor" class="col-lg-2 control-label">color</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model="vm.color" class="form-control" id="inputcolor" placeholder="color">
+
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+                    </form>
+                    <div>
+                        <button ng-click="vm.addCat()" type="button" class="btn btn-primary">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
