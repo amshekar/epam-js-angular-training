@@ -2,7 +2,8 @@
     function voteCatService($http, $q, $location) {
         var service = {
             GetCats: GetCats,
-            AddCat:AddCat
+            AddCat:AddCat,
+            GetCat:GetCat
         };
 
 
@@ -31,9 +32,12 @@
         }];
        
         return service;
-        function GetCats() {
-            return cats;
-            
+        
+          function GetCats() {
+            var deffered=$q.defer();
+            deffered.resolve(cats);
+            return deffered.promise;
+
         }
         function AddCat(reqName,reqUrl) {
 
@@ -41,6 +45,9 @@
             
 
         }
+         function GetCat(id) {
+        return $http.get('/cat/' + id);
+    }
     }
     
     voteCatService.$inject = ['$http', '$q', '$location'];

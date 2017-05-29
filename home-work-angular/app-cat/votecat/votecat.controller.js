@@ -1,10 +1,12 @@
 //need to refractor h-w-1 section 3
 (function (module) {
     "use strict";
-    function VoteCatController(voteCatService, $cookies,$log) {
+    function VoteCatController(voteCatService, $cookies,$log,catresult) {
         var vm = this;
-        vm.cats = voteCatService.GetCats();
-        vm.Allcats = vm.cats;
+        alert(catresult);
+       vm.cats =[];
+      //  vm.cats = catresult.data;
+       // vm.Allcats = vm.cats;      
         vm.selectedOne = null;
         vm.totalclicks = 0;
         vm.cat = vm.cats[0];
@@ -20,6 +22,14 @@
         vm.resetAll = resetAll;
         vm.getmycookiesback = null;
 
+           GetCats();
+        function GetCats() {
+            voteCatService.GetCats().then(function (result) {
+                vm.cats = result;
+            }, function (error) {
+                $log.info(error);
+            });
+        } 
         function selectedCat(item) {
             vm.selectedOne = item;
             vm.selectedCatClicks = 0;
@@ -89,7 +99,7 @@
         }
 
     }
-    VoteCatController.$inject = ["voteCatService","$cookies","$log"];
+    VoteCatController.$inject = ["voteCatService","$cookies","$log","catresult"];
     module.controller("VoteCatController", VoteCatController);
 
 })(angular.module("catapp"));
