@@ -2,11 +2,10 @@
 (function (module) {
     "use strict";
     function VoteCatController(voteCatService, $cookies,$log,catresult) {
-        var vm = this;
-        alert(catresult);
+        var vm = this;       
        vm.cats =[];
-      //  vm.cats = catresult.data;
-       // vm.Allcats = vm.cats;      
+       vm.cats = catresult;
+       vm.Allcats = vm.cats;      
         vm.selectedOne = null;
         vm.totalclicks = 0;
         vm.cat = vm.cats[0];
@@ -22,14 +21,6 @@
         vm.resetAll = resetAll;
         vm.getmycookiesback = null;
 
-           GetCats();
-        function GetCats() {
-            voteCatService.GetCats().then(function (result) {
-                vm.cats = result;
-            }, function (error) {
-                $log.info(error);
-            });
-        } 
         function selectedCat(item) {
             vm.selectedOne = item;
             vm.selectedCatClicks = 0;
