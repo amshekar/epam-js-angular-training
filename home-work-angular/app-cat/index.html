@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/customstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.js"></script>   
+    <script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    
+    <script src="app.core.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.route.js"></script>
+     <script src="directives/ca.enter.directive.js"></script>
+     <script src="directives/ca.focus.directive.js"></script>
+     <script src="directives/ca.imagepreview.directive.js"></script>
+     <script src="directives/ca.votespinner.directive.js"></script>     
+    <script src="about/about.controller.js"></script>
+    <script src="premiumcat/premiumcat.service.js"></script>
+    <script src="premiumcat/premiumcat.controller.js"></script>
+    <script src="votecat/votecat.service.js"></script>
+    <script src="singlecat/singlecat.controller.js"></script>
+    <script src="twocats/twocats.controller.js"></script>
+    <script src="votecat/votecat.controller.js"></script>
+</head>
+<body ng-app="catapp">
+
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-top: -10px;" href="#">  <img src="images/robocat.png" width="60px" alt=""></a>            
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="about">About us</a></li>
+            <!--<li><a ui-sref="singlecat">Single Cat</a></li>-->
+            <li><a ui-sref="votecat">Vote Cat</a></li>
+            <li><a ui-sref="premiumcat">Premium Cat</a></li>
+            <li><a ui-sref="twocats">Two Cats</a></li>            
+        </ul>        
+        <ul class="nav navbar-nav pull-right">
+            <!--<li><a ui-sref="logout">Logout</a></li>-->
+        </ul>        
+    </div>
+    <div ui-view></div>   
+</body>
+</html>
