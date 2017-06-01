@@ -18,7 +18,7 @@
         }
 
     }
-    
-    module.controller("TwoCatsController", TwoCatsController);
 
-})(angular.module("catclick"));
+     module.controller("TwoCatsController", TwoCatsController);
+
+})(angular.module("catapp"));

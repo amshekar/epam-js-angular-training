@@ -3,16 +3,7 @@
     "use strict";
     function PremiumCatController(premiumCatService) {
         var vm = this;
-        GetCats();
-        function GetCats() {
-            premiumCatService.GetCats().then(function (result) {
-                vm.cats = result;
-            }, function (error) {
-                $log.info(error);
-            });
-        }
-
-
+        vm.cats = premiumCatService.GetCats();       
 
         vm.selectedOne = null;
         vm.totalclicks = 0;
@@ -49,4 +40,4 @@
     PremiumCatController.$inject = ["premiumCatService"];
     module.controller("PremiumCatController", PremiumCatController);
 
-})(angular.module("catclick"));
+})(angular.module("catapp"));

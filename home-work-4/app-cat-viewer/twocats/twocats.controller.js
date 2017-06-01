@@ -19,7 +19,6 @@
 
     }
 
-    TwoCatsController.$inject = [];
-    module.controller("TwoCatsController", TwoCatsController);
+     module.controller("TwoCatsController", TwoCatsController);
 
 })(angular.module("catviewer"));
