@@ -18,24 +18,21 @@
                 // controllerAs: "vm"
             })
             .state("login", {
-                url: "/login",
-                template: '<p>EPAM Angular Training tasks login in progress 1.0</p>'
-                // templateUrl: "about/about.html",
-                // controller: "AboutController",
+                url: "/login",                
+                templateUrl: '/partials/partial.login.html',
+                controller: 'LoginCtrl'
                 // controllerAs: "vm"
             })
             .state("signup", {
                 url: "/signup",
-                template: '<p>EPAM Angular Training tasks signup in progress 1.0</p>'
-                // templateUrl: "about/about.html",
-                // controller: "AboutController",
+                templateUrl: '/partials/partial.signup.html',
+                controller: 'SignupCtrl'
                 // controllerAs: "vm"
             })
             .state("logout", {
                 url: "/logout",
-                template: '<p>EPAM Angular Training Logut in progress 1.0</p>'
-                // templateUrl: "about/about.html",
-                // controller: "AboutController",
+                template: null,
+                controller: 'LogoutCtrl'
                 // controllerAs: "vm"
             })
             .state("votecat", {

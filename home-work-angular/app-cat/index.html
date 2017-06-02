@@ -9,6 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.js"></script>
     <script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
 
     <script src="app.core.js"></script>
     <script src="app.module.js"></script>
@@ -23,6 +25,10 @@
     <script src="premiumcat/premiumcat.controller.js"></script>
     <script src="votecat/votecat.service.js"></script>    
     <script src="votecat/votecat.controller.js"></script>
+    <script src="partials/account.service.js"></script>
+    <script src="partials/login.controller.js"></script>
+    <script src="partials/logout.controller.js"></script>
+    <script src="partials/signup.controller.js"></script>
 </head>
 <body ng-app="catapp">
 
@@ -44,5 +50,8 @@
         </ul>
     </div>
     <div ui-view></div>
+    <div class="footer">
+       &copy; All rights reserved 2017
+    </div>
 </body>
 </html>

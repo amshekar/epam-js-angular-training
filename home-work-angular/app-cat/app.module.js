@@ -4,6 +4,7 @@
     angular.module("catapp",
         [
             /*shared modules*/
-            'appcore'
+            'appcore',
+            'toastr'
         ]);
 })(angular);
