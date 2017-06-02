@@ -49,16 +49,16 @@
             </ul>
         </div>-->
         <div class="col-md-6 col-md-offset-3" ng-show="vm.selectedOne">
-            <div ng-show="vm.votes>0"><i class="fa fa-smile-o fa-5x" aria-hidden="true"></i></div>
+            <!--<div ng-show="vm.votes>0"><i class="fa fa-smile-o fa-5x" aria-hidden="true"></i></div>
             <div ng-show="vm.votes=0"><i class="fa fa-meh-o fa-5x" aria-hidden="true"></i></div>
-            <div ng-show="vm.votes<0"><i class="fa fa-frown-o fa-5x" aria-hidden="true"></i></div>
+            <div ng-show="vm.votes<0"><i class="fa fa-frown-o fa-5x" aria-hidden="true"></i></div>-->
             <img ng-src="{{vm.selectedOne.url}}" alt="{{vm.selectedOne.name}}" ng-click="vm.selecteCatClick()" class="imagesize">
             <div>
                 Name :&nbsp;&nbsp;{{vm.selectedOne.name}}&nbsp;&nbsp;
-                Votes:&nbsp;&nbsp;{{vm.votes}}&nbsp;&nbsp;
-                <!--Total Clicks:&nbsp;&nbsp;{{vm.totalclicks}}&nbsp;&nbsp;-->
+                Votes:&nbsp;&nbsp;{{vm.totalVotes}}&nbsp;&nbsp;
+                Total Clicks:&nbsp;&nbsp;{{vm.totalclicks}}&nbsp;&nbsp;
             </div>
-            <a class="btn btn-success" href="#" id="testBtnDown" ng-click="vm.upVote()">
+            <a class="btn btn-success" ng-disabled="!vm.canVote" href="#" id="testBtnDown" ng-click="vm.upVote()">
                 <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
             </a>
             <a class="btn btn-danger " href="#" id="testBtnDown" ng-click="vm.downVote()">
@@ -74,24 +74,24 @@
 
     <div class="row">
         <div class="col-md-12">
-            <form name="addCatForm" class="form-horizontal" novalidate>
+            <form name="addCatForm" class="form-horizontal" ng-enter="vm.addCat()" novalidate>
                 <fieldset>
                     <legend>Add Cat</legend>
                     <div class="form-group">
                         <label for="inputname" class="col-lg-2 control-label">Name</label>
                         <div class="col-lg-10">
-                            <input type="text" name="catName" ng-model="vm.name" class="form-control" id="inputname" placeholder="Name" required>
+                            <input type="text" name="catName" ng-model="vm.name" class="form-control" id="inputname" placeholder="Name" item-focus="true" required>
                             <span class="text-error" ng-show="addCatForm.catName.$touched && addCatForm.catName.$invalid">The name is required.</span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="inputurl" class="col-lg-2 control-label">URL</label>
                         <div class="col-lg-10">
                             <input name="path" type="url" ng-model="vm.url" class="form-control" id="inputurl" placeholder="url" required>
                             <span class="text-error" ng-show="addCatForm.path.$touched && addCatForm.path.$invalid">Plese provide valid url.</span>
 
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label for="inputcolor" class="col-lg-2 control-label">color</label>
                         <div class="col-lg-10">
@@ -99,7 +99,9 @@
 
                         </div>
                     </div>
-                    <button ng-disabled="addCatForm.$invalid" ng-enter="vm.addCat()" type="button" class="btn btn-success">
+                    <image-preview cat-url="vm.url" cat-obj="vm"></image-preview>
+
+                    <button ng-disabled="addCatForm.$invalid"  type="button" class="btn btn-success">
                         Save
                     </button>
                     <button ng-click="vm.resetAll()" type="button" class="btn btn-default">
