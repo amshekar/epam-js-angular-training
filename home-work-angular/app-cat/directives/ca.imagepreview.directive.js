@@ -6,8 +6,8 @@
         return {
             restrict: 'EA',
             scope: {
-                catUrl: '=catUrl',
-                catObj: '=catObj'
+                catUrl: '=',
+                catObj: '='
             },
             templateUrl: './partials/image-preview.html',
         }

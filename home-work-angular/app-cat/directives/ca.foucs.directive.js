@@ -4,10 +4,10 @@
         return {
             restrict: 'A',
             scope: {
-                itemFocus: '=itemFocus'
+                trigger: '=itemFocus'
             },
             link: function (scope, elem, attr, ctrl) {
-                scope.$watch('itemFocus', focusElement);
+                scope.$watch('trigger', focusElement);
                 function focusElement(isFocusRequire) {
                     if (isFocusRequire === true) {
                         elem[0].focus();

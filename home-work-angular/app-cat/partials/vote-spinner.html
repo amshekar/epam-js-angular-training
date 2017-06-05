@@ -1,0 +1,19 @@
+﻿<!--<div ng-form="imageForm">
+    <div class="form-group">
+        <label for="inputurl" class="col-lg-2 control-label">URL</label>
+        <div class="col-lg-10">
+            <input name="path" type="url" ng-model="catUrl" class="form-control" id="inputurl" placeholder="url" required>
+            <img src={{catUrl}} class="img-responsive img-dimensions" />
+            <span class="text-error" ng-show="imageForm.path.$touched && imageForm.path.$invalid">Plese provide valid url.</span>
+
+        </div>
+    </div>
+</div>-->
+<div class="form-group">
+    <a class="btn btn-success" ng-disabled="!catvote.canVote" href="#" id="testBtnDown" ng-click="catvote.upVote()">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+    </a>
+    <a class="btn btn-danger " href="#" id="testBtnDown" ng-click="catvote.downVote()">
+        <i class="fa fa-thumbs-down"></i>
+    </a>
+</div>

@@ -20,14 +20,14 @@
             .state("login", {
                 url: "/login",                
                 templateUrl: '/partials/partial.login.html',
-                controller: 'LoginCtrl'
-                // controllerAs: "vm"
+                controller: 'LoginController',
+                controllerAs: "vm"
             })
             .state("signup", {
                 url: "/signup",
                 templateUrl: '/partials/partial.signup.html',
-                controller: 'SignupCtrl'
-                // controllerAs: "vm"
+                controller: 'SignUpController',
+                controllerAs: "vm"
             })
             .state("logout", {
                 url: "/logout",
@@ -43,7 +43,7 @@
                             return voteCatService.GetCats();
                         }]
                 },
-                templateUrl: "votecat/vote-cat.html",
+                templateUrl: "/votecat/vote-cat.html",
                 controller: "VoteCatController",
                 controllerAs: 'vm'
             })

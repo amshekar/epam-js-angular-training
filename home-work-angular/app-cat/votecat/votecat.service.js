@@ -2,14 +2,15 @@
     function voteCatService($http, $q, $location) {
         var service = {
             GetCats: GetCats,
-            AddCat:AddCat,
-            GetCat:GetCat
+            AddCat: AddCat,
+            GetCat: GetCat,
+            AuthenticateUser: AuthenticateUser
         };
 
 
 
-        var cats = [];
-        cats=[{
+        var cats = [],listOfUsers=[];
+        cats = [{
             name: 'oci cat',
             url: 'http://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&amp;h=426'
 
@@ -40,28 +41,35 @@
             url: 'http://cdn1-www.cattime.com/assets/uploads/gallery/persian-cats-and-kittens/persian-cats-and-kittens-8.jpg'
 
         }
-        
+
         ];
-       
+
         return service;
-        
-          function GetCats() {
-            var deffered=$q.defer();
+
+        function GetCats() {
+            var deffered = $q.defer();
             deffered.resolve(cats);
             return deffered.promise;
 
         }
-        function AddCat(reqName,reqUrl) {
+        function AddCat(reqName, reqUrl) {
 
             cats.push({ name: reqName, url: reqUrl });
-            
+
 
         }
-         function GetCat(id) {
-        return $http.get('/cat/' + id);
+        function GetCat(id) {
+            return $http.get('/cat/' + id);
+        }
+        
+        function AuthenticateUser(userdb) {
+            //listOfUsers = localStorage.get('users');
+            //return listOfUsers.filter(function (user) {
+            //    return user.userName === userdb.userName && user.password === userdb.password;
+            //})[0];
+        }
     }
-    }
-    
+
     voteCatService.$inject = ['$http', '$q', '$location'];
     module.service('voteCatService', voteCatService);
 })(angular.module('catapp'));
