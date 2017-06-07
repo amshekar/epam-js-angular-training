@@ -1,21 +1,23 @@
 ﻿(function (module) {
-    "use strict";
-    function SignUpController(localStorageService, $cookies, $log) {
-        var vm = this, userdb, KEY = 'users';
+
+    function SignUpController(localStorage, $state, toastr) {
+        var vm = this,
+            usersDb,
+            KEY = 'users';
         vm.signup = signup;
 
-        userdb = localStorageService.get(KEY);
-        userdb = !userdb ? localStorageService.set(KEY, []) : userdb;
-
+        usersDb = localStorage.get(KEY);
+        usersDb = !usersDb ? localStorage.set(KEY, []) : usersDb;
         function signup(user) {
-            userdb.push(user);
-            localStorageService.set(KEY, userdb);
+            usersDb.push(user);
+            localStorage.set(KEY, usersDb);
+            toastr.info('You have successfully created a new account and have been signed-up');
             $state.go('login');
-            //toastr.info('You have successfully created a new account and have been signed-up');
         }
+
     }
 
-    SignUpController.$inject = ["localStorageService", "$cookies", "$log"];
+    SignUpController.$inject = ['localStorageService', '$state', 'toastr'];
     module.controller("SignUpController", SignUpController);
 
 })(angular.module("catapp"));

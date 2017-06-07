@@ -5,6 +5,8 @@
         [
             //3rd party dep
             'ngCookies',
-            'ui.router'
+            'ui.router',
+            'LocalStorageModule',
+            'toastr',
         ]);
 })(angular);

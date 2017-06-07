@@ -7,8 +7,8 @@
         function login(user) {
             userdb.push(user);
             localStorage.set(KEY, userdb);
-            $state.go('login');
-            toastr.info('You have successfully created a new account and have been signed-up');
+            $state.go('about');
+            toastr.info('You have successfully Loged in');
         }
     }
 
