@@ -6,7 +6,7 @@
                 
                
                 <hr>
-                <form method="post" ng-submit="vm.login()" name="loginForm">
+                <form method="post" ng-submit="vm.login(vm.user)" name="loginForm">
                     <div class="form-group has-feedback">
                         <input class="form-control input-lg" type="text" name="email" ng-model="vm.user.email" placeholder="Email Address" required autofocus>
                         <span class="ion-at form-control-feedback"></span>

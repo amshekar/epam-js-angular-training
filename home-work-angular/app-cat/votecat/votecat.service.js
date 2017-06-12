@@ -1,10 +1,12 @@
 ﻿(function (module) {
-    function voteCatService($http, $q, $location) {
+    function voteCatService($http, $q, $location, localStorage) {
         var service = {
             GetCats: GetCats,
             AddCat: AddCat,
             GetCat: GetCat,
-            AuthenticateUser: AuthenticateUser
+            AuthenticateUser: AuthenticateUser,
+            validateUser: validateUser,
+            AuthenticateUserPromise: AuthenticateUserPromise
         };
 
 
@@ -61,15 +63,24 @@
         function GetCat(id) {
             return $http.get('/cat/' + id);
         }
-        
-        function AuthenticateUser(userdb) {
-            //listOfUsers = localStorage.get('users');
-            //return listOfUsers.filter(function (user) {
-            //    return user.userName === userdb.userName && user.password === userdb.password;
-            //})[0];
+        function validateUser(userData) {
+            return $http.post('/authenticateUser', userData);
+        }
+
+        function AuthenticateUserPromise(userdb) {
+            var deffered = $q.defer();
+            deffered.resolve(AuthenticateUser(userdb));
+            return deffered.promise;
+        }
+        function AuthenticateUser(userdb) {          
+
+            listOfUsers = localStorage.get('users');
+            return listOfUsers.filter(function (user) {
+                return user.email === userdb.email && user.password === userdb.password;
+            })[0];
         }
     }
 
-    voteCatService.$inject = ['$http', '$q', '$location'];
+    voteCatService.$inject = ['$http', '$q', '$location', 'localStorageService'];
     module.service('voteCatService', voteCatService);
 })(angular.module('catapp'));
