@@ -8,5 +8,6 @@
             'ui.router',
             'LocalStorageModule',
             'toastr',
+            'typer'
         ]);
 })(angular);
