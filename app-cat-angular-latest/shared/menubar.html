@@ -1,0 +1,14 @@
+<div ng-controller="menubarController as ctrl">
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" style="margin-top: -10px;" ui-sref="cat"><img src="images/robocat.png" width="60px" alt=""></a>
+        
+    </div>
+    <ul class="nav navbar-nav">
+        <li ng-if="!ctrl.isLoggedIn"><a ui-sref="cat.user.login">Login</a></li>
+        <li ng-if="!ctrl.isLoggedIn"><a ui-sref="cat.user.signup">Signup</a></li>
+        <li ng-if="ctrl.isLoggedIn"><a ui-sref="cat.view.all">CatViewer</a></li>
+        <li ng-if="ctrl.isLoggedIn"><a ui-sref="cat.view.add">Add Cat</a></li>
+        <li ng-if="ctrl.isLoggedIn"><a ng-click="ctrl.logout()">Logout</a></li>
+    </ul>
+</nav>

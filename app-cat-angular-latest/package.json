@@ -1,0 +1,20 @@
+{
+  "name": "epam-traiing-appcat",
+  "private": true,
+  "version": "0.3.0",
+  "description": "epam-traiing-appcat", 
+  "devDependencies": {
+    "angular": "1.5.6",
+    "angular-route": "1.4.8",
+    "angular-cookies": "1.5.6",
+    "angular-mocks": "1.4.8",
+    "http-server": "^0.6.1",
+    "bootstrap": "3.3.7",
+    "jquery": "1.12.4"
+  },
+  "dependencies": {
+    "angular-ui-router": "^1.0.3",
+    "angular-messages": "1.4.8",
+    "angular-local-storage": "0.6.0"
+  }
+}
