@@ -1,0 +1,21 @@
+<div ng-controller="catAddController as ctrl">
+    <div class="col-sm-6">
+        <form name="catForm" novalidate on-enter="ctrl.submit(catForm.$valid)">
+            <div class="form-group" ng-class="{ 'has-error' : catForm.name.$invalid && !catForm.name.$pristine }">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" ng-model="ctrl.cat.name" required>
+                <p ng-show="catForm.name.$invalid && !catForm.name.$pristine" class="help-block">cat name is required.</p>
+            </div>
+            <div class="form-group">
+                <img-preview img-url=ctrl.cat.url></img-preview>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" ng-disabled="catForm.$invalid" ng-click="ctrl.submit(catForm.$valid)">
+                    <span ng-if="ctrl.cat.id!=undefined">Update</span>
+                    <span ng-if="ctrl.cat.id==undefined">Submit</span>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="ctrl.clear()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="input-group">
+            <input type="text" ng-model="ctrl.searchTxt" class="form-control" placeholder="Search" />
+            <span class="input-group-addon" id="searchIcon" ng-click="ctrl.search()">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </span>
+            <select class="form-control" ng-model="ctrl.searchOrder" ng-options="order.value as order.text for order in ctrl.orderBy">
+                    </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h2 class="col-md-12">Cats list</h2>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="col-md-12" ng-repeat="cat in ctrl.searchResult|orderBy:cat.name:ctrl.searchOrder">
+                <div ng-click="ctrl.onLabelClick(cat)">
+                    <label ng-bind="cat.name"></label>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-if="cat.hasViewed"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10" ng-if="ctrl.activeCat.name">
+            <div class="col-md-3">
+                <img class="catimg" ng-src={{ctrl.activeCat.url}} alt="cat" ng-click="ctrl.onImageClick()"></img>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <span>Name: </span><label ng-bind="ctrl.activeCat.name"></label>
+                </div>
+                <div class="col-md-12">
+                    <span>Click Count: </span><label ng-bind="ctrl.activeCat.count"></label>
+                </div>
+                <div class="col-md-12">
+                    <span>Votes: </span><label ng-bind="ctrl.activeCat.voteCount"></lable>
+                    </div>
+                    <div class="col-md-12">
+                        <voter cat = ctrl.activeCat></voter>                     
+                    </div>
+                </div>
+                <div class="col-md-12" ng-if="ctrl.canUpdate">
+                    <a ui-sref="cat.view.update({id: ctrl.activeCat.id})">Update Cat</a>
+                    <a ng-click="ctrl.deleteCat()">Delete Cat</a>
+                </div>
+            </div>
+        </div>
+    </div>

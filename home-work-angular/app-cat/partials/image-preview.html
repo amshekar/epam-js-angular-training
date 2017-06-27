@@ -1,0 +1,11 @@
+﻿<div ng-form="imageForm">  
+    <div class="form-group">
+        <label for="inputurl" class="col-lg-2 control-label">URL</label>
+        <div class="col-lg-10">
+            <input name="path" type="url" ng-model="catUrl" class="form-control" id="inputurl" placeholder="url" required>
+            <img src={{catUrl}} class="img-responsive img-dimensions" />
+            <span class="text-error" ng-show="imageForm.path.$touched && imageForm.path.$invalid">Plese provide valid url.</span>
+
+        </div>
+    </div>
+</div>

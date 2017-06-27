@@ -20,6 +20,8 @@
         vm.addCat = addCat;
         vm.resetAll = resetAll;
         vm.getmycookiesback = null;
+        vm.totalVotes = 0;
+        vm.canVote = vm.getmycookiesback==null ? true : false;
 
         function selectedCat(item) {
             vm.selectedOne = item;
@@ -48,17 +50,20 @@
         }
 
         function upVote() {
-            vm.votes++;
+            vm.totalVotes++;
             //storing and retreiving from cookie
-            
-            $cookies.putObject('catVotes', { 'name': 'cat', 'vote': vm.votes});
+            $cookies.putObject('catVotes', { 'name': 'cat', 'vote': vm.totalVotes });
             vm.getmycookiesback = $cookies.getObject('catVotes');
-            $log.info(vm.getmycookiesback.name);
-            $log.info(vm.getmycookiesback.vote);
-
+            if (vm.getmycookiesback.vote>1) {
+                vm.canVote = false;
+            }            
+            
+            $log.info(vm.getmycookiesback);                     
+            vm.totalVotes = vm.getmycookiesback.vote;
         }
         function downVote() {
-            vm.votes--;
+            vm.totalVotes--;
+            
         }
 
         function search() {

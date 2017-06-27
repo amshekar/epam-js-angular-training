@@ -5,5 +5,6 @@
         [
             /*shared modules*/
             'appcore'
+            
         ]);
 })(angular);

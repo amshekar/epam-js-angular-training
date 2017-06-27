@@ -3,7 +3,7 @@
     /*
 This directive allows us to pass a function in on an enter key to do what we want.
  */
-module.directive('ngEnter', function () {
+module.directive('caEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if(event.which === 13) {
