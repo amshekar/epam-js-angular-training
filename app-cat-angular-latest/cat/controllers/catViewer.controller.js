@@ -1,6 +1,7 @@
-(function (app) {
+(function (module) {
     "use strict";
-    app.controller('catViewerController', ['catService', 'catresults', 'currentObj', function (catService, catResults, currentObj) {
+    //app.controller('catViewerController', ['catService', 'catresults', 'currentObj', 
+    function catViewerController(catService, catResults, currentObj) {
         var vm = this;
         vm.searchOrder = false;
         vm.searchResult = catResults;
@@ -45,14 +46,17 @@
 
         vm.deleteCat = function () {
             catService.deleteCat(vm.activeCat).then(function (result) {
-                if (result){
+                if (result) {
                     vm.searchResult = vm.searchResult.filter(function (obj) {
                         return obj.id != vm.activeCat.id;
                     });
                 }
             });
-        }
+        };
 
-    }]);
+    }
+    //]);
+    catViewerController.$inject = ['catService', 'catresults', 'currentObj'];
+    module.controller("catViewerController", catViewerController);
 
 })(angular.module('catView'))

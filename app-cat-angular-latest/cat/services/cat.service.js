@@ -1,7 +1,7 @@
-(function (app) {
-    "use strict"
+(function (module) {
+    "use strict";
 
-    app.service('catService', function ($q, $http, currentObj) {
+    function catService($q, $http, currentObj) {
 
         this.getCats = function () {
             return $http.get('/getCats').then(function (response) {
@@ -13,27 +13,27 @@
             return $http({
                 method: 'POST',
                 url: '/getCatById',
-                data: id                
+                data: id
             }).then(function (respose) {
                 return respose.data;
             });
         };
 
-        this.addUpdateCat = function(cat){
-             return $http({
+        this.addUpdateCat = function (cat) {
+            return $http({
                 method: 'POST',
                 url: '/addUpdateCat',
-                data: cat                
+                data: cat
             }).then(function (respose) {
                 return true;
             });
         };
 
-        this.deleteCat = function(cat){
+        this.deleteCat = function (cat) {
             return $http({
                 method: 'POST',
                 url: '/deleteCat',
-                data: cat                
+                data: cat
             }).then(function (respose) {
                 return true;
             });
@@ -44,11 +44,13 @@
             return $http({
                 method: 'POST',
                 url: '/search',
-                data: {name: name}                
+                data: { name: name }
             }).then(function (respose) {
                 return respose.data;
             });
         };
-    });
+    }
 
+    catService.$inject = ["$q", "$http", "currentObj"];
+    module.service("catService", catService);
 })(angular.module("catView"));

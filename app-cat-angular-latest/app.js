@@ -1,7 +1,7 @@
 (function () {
     "use strict"
 
-    angular.module('myApp', ['ui.router', 'ngMockE2E', 'ngStorage', 'catUser', 'catView']);
+    angular.module('myApp', ['appcore', 'catUser', 'catView']);
 
 
     angular.module('myApp').run(['$httpBackend', '$rootScope', '$state', 'currentObj',

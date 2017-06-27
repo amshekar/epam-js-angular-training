@@ -1,6 +1,6 @@
-(function (app) {
+(function (module) {
 
-    app.service('userService', ['$http', 'currentObj', function ($http, currentObj) {
+    function userService($http, currentObj) {
 
         this.validateUser = function (userInfo) {
             return $http({
@@ -25,7 +25,7 @@
             return $http({
                 method: 'POST',
                 url: 'user/signup',
-                data: userInfo                
+                data: userInfo
             }).then(function (respose) {
                 currentObj.user = respose;
                 currentObj.isAuthenticated = true;
@@ -33,5 +33,8 @@
             });
         }
 
-    }]);
+    }
+
+    userService.$inject = ['$http', 'currentObj'];
+    module.service("userService", userService);
 })(angular.module('catUser'));
